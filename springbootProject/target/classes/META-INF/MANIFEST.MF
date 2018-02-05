@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springbootProject
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: beatr
+Implementation-Vendor-Id: com.project
+Build-Jdk: 1.8.0_151
+Implementation-URL: http://projects.spring.io/spring-boot/springbootPr
+ oject/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

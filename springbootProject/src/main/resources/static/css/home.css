@@ -1,0 +1,96 @@
+#first-section{
+  text-align: center;
+  margin-top: -35px;
+}
+
+#second-about{
+  color: #424242;
+}
+
+.container-large {
+  max-width: 100%;
+}
+
+#startedBtn{
+  margin-top: 20px;
+}
+
+fieldset{
+  border: 1px solid #ddd !important;
+  margin: 0;
+  xmin-width: 0;
+  padding: 10px;
+  position: relative;
+}
+
+legend{
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  width: 10%;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+}
+
+.panel-body{
+  margin: 10px 30px 0px 30px;
+  width: 45%;
+  text-align: center;
+  height: 150px;
+}
+
+#information{
+  float: left;
+}
+
+#contacting{
+  float:right;
+}
+
+.glyphicon{
+  margin-right: 8px;
+}
+
+#cancelBtn{
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid red;
+  color: red;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+#cancelBtn:hover{
+  background-color: red;
+  color: white;
+}
+
+#submitBtn{
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid green;
+  color: green;
+}
+
+#submitBtn:hover{
+  background-color: green;
+  color: white;
+}
+
+#inputOpinion{
+  margin-top: 10px;
+  height: 100px;
+}
+
+#myModal{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#modalDialog{
+  margin-top: 150px;
+  color: white;
+}
+
+.modal-content{
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0px;
+}

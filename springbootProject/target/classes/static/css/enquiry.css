@@ -1,0 +1,21 @@
+.footerCon {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+body{
+	overflow-x: hidden;
+}
+
+#form {
+	width:100%;
+}
+
+#textArea {
+	resize: none;
+}
+
+#submitBtn {
+	align: right;
+}

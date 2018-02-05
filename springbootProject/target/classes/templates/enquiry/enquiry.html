@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+	
+ 	<head>
+ 		<div th:replace="template :: head"></div>
+		<title>Contact Us</title>
+		<link rel="stylesheet" href="../../css/enquiry.css" />
+		<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" />
+		
+	  	<script rel="text/javascript" src="../../script/enquiry.js"></script>
+ 	</head>
+
+	<body>
+	 	<!--Default navbar-->
+	    <nav th:replace="template :: nav"></nav>
+	    
+	    <!--Body content-->
+	    <div class="container body-content">
+	      <div class="container" id="bodyCon">
+	      	<div class="row">
+	          <div class="col-md-12">
+	            <h1 id="enquiryHeader" class="text-center">Enquiries</h1>
+	          </div>
+	        </div>
+	        
+	        <div class="row">
+	        	<!-- left col -->
+	        	<div class="col-xs-6">
+	        		<div class="container" id="form">
+	        		
+	        			<h3>Drop us a mail here!</h3>
+	        			
+	        			<form class="form-horizontal">
+	        				<fieldset>
+	        					<div class="form-group">
+									<div class="col-xs-9">
+								     	<input type="text" class="form-control" id="inputName" placeholder="Name" require="required" />
+								     </div>
+								</div>
+								
+								<div class="form-group">
+									<div class="col-xs-9">
+								     	<input type="email" class="form-control" id="inputEmail" placeholder="Email" require="required" />
+								     </div>
+								</div>
+								
+								<div class="form-group">
+									<div class="col-xs-9">
+								     	<input type="text" class="form-control" id="inputSubject" placeholder="Subject" require="required" />
+								     </div>
+								</div>
+								
+								<div class="form-group">
+									<div class="col-xs-9">
+								     	<textarea class="form-control" rows="6" id="textArea" placeholder="Message" require="required"></textarea>
+								     </div>
+								</div>
+								
+								<div class="form-group">
+							    	<div class="col-xs-9 text-right">
+							      		<button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+							     	</div>
+							    </div>
+								
+	        				</fieldset>
+	        				
+	        			</form>
+	        		</div>
+	        	</div>
+	        	
+	        	<!-- right col -->
+	        	<div class="col-xs-6">
+	        		<div class="container">
+	        			<h3>Our Contact</h3>
+	        			
+	        			<h4>
+	        				<span class="glyphicon glyphicon-earphone" style="padding-right:2%;"></span>
+	        				(+65)91234567
+	        			</h4>
+	        			
+	        			<h4>
+	        				<span class="glyphicon glyphicon-envelope" style="padding-right:2%;"></span>
+	        				stratdmin@gmail.com
+	        			</h4>
+	        			
+	        		</div>
+	        	</div>
+	        	
+	        	
+	        </div>	      	
+	      	
+	      </div>
+	    </div>
+	    
+	    <!-- footer -->
+		<div th:replace="template :: footer"></div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+	<head th:fragment="head">
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+		<link th:href="@{../../css/style.css}" rel="stylesheet" />
+		<link th:href="@{../../css/bootstrap.css}" rel="stylesheet" />
+		
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+	</head>
+	
+	<!-- nav bar fragment -->
+	<nav th:fragment="nav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#strat-navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="../../images/StratLogo.png" alt="logo" class="img-responsive" width="45" height="45" id="logo"/></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="strat-navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Administrator</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- footer fragment -->
+     <div th:fragment="footer" class="container-small footerCon">
+        <footer class="footer-bs">
+          <span style="padding: 1% 0 0 1%;"><section align="right">&copy; 2018 Strat</section></span>
+        </footer>
+     </div>
+</html>

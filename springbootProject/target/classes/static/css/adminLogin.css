@@ -1,0 +1,34 @@
+#adminHeader {
+  text-align: center;
+}
+
+.hr {
+  width: 50%;
+}
+
+#adminLoginRow {
+  margin-left: 25%;
+}
+
+#forgetPwCol {
+  margin-left: 2.5%;
+  text-align: center;
+}
+
+#forgetPwEmailCon {
+  margin-left: 3%;
+}
+
+#forgetPwModal{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#forgetPwModalSubHeader {
+  margin-left: 3%
+}
+
+.footerCon {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

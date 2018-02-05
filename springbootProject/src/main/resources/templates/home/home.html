@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
+   <head>
+      <meta charset="UTF-8"/>
+      <title>Strat Home Page</title>
+      <div th:replace="template :: header"></div>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>	
+      <link href="../../css/home.css" rel="stylesheet"/>
+   </head>
+   <body>
+	<!--Default navbar-->
+	<nav th:replace="template :: nav"></nav>
+      
+      <div class="container-large body-content">
+         <div class="row-section jumbotron" id="first-section">
+            <h1>WELCOME TO STRAT</h1>
+            <h3>Interested to learn?</h3>
+            <a href="#"><button type="button" name="button" class="btn btn-default btn-md" id="startedBtn">Get Started
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true" style="margin:0px -8px 0px 5px;"></span></button></a>
+         </div>
+         <div class="row-section" id="second-section">
+            <fieldset>
+               <legend><a href="#" id="second-about">About Us</a></legend>
+               <div class="panel-body" id="information">
+                  <h3><strong>Who Are We?</strong></h3>
+                  <h5>This is what they say about us.</h5>
+               </div>
+               <div class="panel-body" id="contacting">
+                  <h3><strong>Talk to Us!</strong></h3>
+                  <h5>Got burning questions? Drop us questions!</h5>
+                  <button type="button" class="btn btn-default btn-xs" id="msgBtn" data-toggle="modal" data-target="#myModal" style="margin: 5px 8px;">
+                  <span class="glyphicon glyphicon-send" aria-hidden="true" style="margin-right: 5px;"></span>Message Us</button>
+               </div>
+            </fieldset>
+         </div>
+         <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog" id="modalDialog">
+               <!-- Modal content-->
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Talk to us!</h4>
+                  </div>
+                  <div class="modal-body">
+                     <form class="form-horizontal">
+                        <div class="form-group">
+                           <div class="col-xs-6">
+                              <input type="text" class="form-control" id="inputFName" placeholder="First Name">
+                           </div>
+                           <div class="col-xs-6">
+                              <input type="text" class="form-control" id="inputLName" placeholder="Last Name">
+                           </div>
+                           <div class="col-xs-12">
+                              <textarea class="form-control" id="inputOpinion" placeholder="Opinion"></textarea>
+                           </div>
+                        </div>
+                        <div class="form-group ">
+                           <div class="col-md-6 col-lg-offset-8">
+                              <button type="button" class="btn btn-xs" data-dismiss="modal" id="cancelBtn">
+                              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>
+                              <button type="submit" class="btn btn-xs" id="submitBtn">
+                              <span class="glyphicon glyphicon-send" aria-hidden="true"></span>Send!</button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         <div th:replace="template :: footer"></div>
+         
+         
+      </div>
+   </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="adminTemplate :: head"></div>
+		<title>Sent Mail</title>
+
+		<link rel="stylesheet" href="../../css/adminSentMail.css" />
+
+	  	<script rel="text/javascript" src="../../script/adminSentMail.js"></script>
+	</head>
+	<body>
+		<!--Default navbar-->
+		<nav th:replace="adminTemplate :: nav"></nav>
+		
+		<!-- Body contents -->
+		<div class="container body-content">
+	    	<div class="container" id="bodyCon">
+	    		 <div class="row">
+			        <div class="col-xs-2">
+           
+			            <ul class="nav nav-pills nav-stacked">
+						   <li><a href="adminInbox" class="menu">Inbox</a></li>
+						  <li><a href="#" class="menu active">Sent Mail</a></li>
+						</ul>
+			       	</div>
+			       	
+			       	<div class="col-xs-10">
+			       		<div class="row">
+				       		<div class="col-xs-9">
+					       		<div class="container" id="adminPanelHeaderCon">
+					       			<h3 id="adminPanelHeader">Sent Mail</h3>
+					       		</div>
+					       	</div>
+				       	</div>	
+				       	
+				       	<div class="row">
+				       	
+				       		<div class="col-xs-9">
+					       		<div class="container" id="table">
+					       			<table class="table">
+										  <thead>
+										    <tr>
+										      <th>#</th>
+										      <th>Date</th>
+										      <th>Name</th>
+										      <th>Email</th>
+										      <th>Subject</th>
+										    </tr>
+										  </thead>
+										  <tbody>
+										    <tr>
+										      <td id="indexId"></td>
+										      <td id="emailDate"></td>
+										      <td id="senderName"></td>
+										      <td id="emailAddr"></td>
+										      <td><a href="#" id="emailSub"></a></td>
+										    </tr>
+										  </tbody>
+									</table>
+					       		</div>
+			       			</div> <!-- end of row -->
+			      		 </div> <!-- end of col -->
+			       	
+			     </div> <!-- end of col -->
+		       	
+	    	</div>
+	  	  </div>
+		</div>
+		
+		<div th:replace="adminTemplate :: footer"></div>
+		
+	</body>
+</html>

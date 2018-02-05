@@ -1,0 +1,17 @@
+body{
+	overflow-x: hidden;
+}
+
+.footerCon {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#table {
+	width: 100%;
+}
+
+a:active {
+	color: blue;
+}
