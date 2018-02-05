@@ -20,11 +20,19 @@
 }
 
 #forgetPwModal{
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);  
 }
 
 #forgetPwModalSubHeader {
-  margin-left: 3%
+  margin-left: 5%;
+}
+
+#modalDialog {
+	margin-top:5%;
+}
+
+.modal-content {
+	height: 250px;
 }
 
 .footerCon {

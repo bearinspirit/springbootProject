@@ -26,14 +26,20 @@
           <ul class="nav navbar-nav">
             <li><a href="/chat">Chat with Us</a></li>
           </ul>
-          <div th:if="!${#authorization.expression('isAuthenticated()')}">
+          
+          <div th:if="!${#authorization.expression('isAuthenticated()')}">          
 	          <ul class="nav navbar-nav navbar-right">
-	            <li><a th:href="@{/login}">Login</a></li>
+	            <li><a th:href="@{/adminLogin}">Login</a></li>
 	            <li><a href="#">Sign Up</a></li>
 	          </ul>
           </div>
 		  
 		  <div th:if="${#authorization.expression('isAuthenticated()')}">
+		  
+		  	  <ul class="nav navbar-nav">
+          	  	<li><a th:href="@{/inbox}">Mail</a></li>
+          	  </ul>
+          	  
 			  <ul class="nav navbar-nav navbar-form navbar-right">
 			     <li id="uName"><h6 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h6></li>
 			     <li>
