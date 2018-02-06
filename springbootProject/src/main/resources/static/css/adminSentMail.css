@@ -2,9 +2,11 @@ body{
 	overflow-x: hidden;
 }
 
-.footerCon {
-  position: absolute;
+.container-small{
+  background-color: #424242;
+  color: #BDBDBD;
   bottom: 0;
+  position: absolute;
   width: 100%;
 }
 

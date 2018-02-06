@@ -8,24 +8,29 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.access.AccessDeniedHandler;
 
 @Configuration
+// http://docs.spring.io/spring-boot/docs/current/reference/html/howto-security.html
+// Switch off the Spring Boot security configuration
+//@EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AccessDeniedHandler accessDeniedHandler;
 
     // roles admin allow to access /admin/**
+    // roles user allow to access /user/**
     // custom 403 access denied handler
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/enquiry").permitAll()
+                .antMatchers("/", "/home", "/chat").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/user/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/adminLogin")
+                .loginPage("/login")
                 .permitAll()
                 .and()
                 .logout()
@@ -39,7 +44,20 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.inMemoryAuthentication()
-                .withUser("stratdmin@gmail.com").password("stratPassword").roles("ADMIN");
+                .withUser("user").password("user").roles("USER")
+                .and()
+        		.withUser("erin").password("erin").roles("USER")
+                .and()
+                .withUser("admin").password("admin").roles("ADMIN");
     }
+
+    /*
+    //Spring Boot configured this already.
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web
+                .ignoring()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+    }*/
 
 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org">
-	<head th:fragment="header">
-		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-		<link th:href="@{../../css/style.css}" rel="stylesheet"/>
-		<link th:href="@{../../css/bootstrap.css}" rel="stylesheet"/>
-		
-		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-		<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-	</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{../../css/style.css}" rel="stylesheet"/>
+	<link th:href="@{../../css/bootstrap.css}" rel="stylesheet"/>
 	
-	<!-- nav bar fragment -->
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</head>
+
 	<nav th:fragment="nav" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -19,56 +19,59 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><img src="../../images/StratLogo.png" alt="logo" class="img-responsive" width="45" height="45" id="logo"/></a>
+          <a class="navbar-brand" href="/"><img src="../images/StratLogo.png" alt="logo" class="img-responsive" width="45" height="45" id="logo"/></a>
         </div>
 
         <div class="collapse navbar-collapse" id="strat-navbar-collapse">
           
-          <div th:if="!${#authorization.expression('isAuthenticated()')}">          
+          <div th:if="!${#authorization.expression('isAuthenticated()')}">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a th:href="@{/login}">Login</a></li>
-	            <li><a th:href="@{#}">Sign Up</a></li>
+	            <li><a href="#">Sign Up</a></li>
+	          </ul>
+	          <ul class="nav navbar-nav">
+	          	<li><a th:href="@{/enquiry}">Enquiries</a></li>
 	          </ul>
           </div>
-		  
-		  <div th:if="${#authorization.expression('isAuthenticated()')}">
-		  
-		  	  <ul class="nav navbar-nav">
-          	  	<li><a th:href="@{/chat}">Live Chat</a></li>
-          	  	<li><a th:href="@{/inbox}">Mail</a></li>
-          	  </ul>
-          	  
-			  <ul class="nav navbar-nav navbar-form navbar-right">
-			     <li id="uName"><h6 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h6></li>
-			     <li>
-			        <a th:href="@{/logout}" id="logout">Logout</a>
-			     </li>
-			  </ul>
-		  </div>
-		  
+			<div th:if="${#authorization.expression('isAuthenticated()')}">
+			   <ul class="nav navbar-nav navbar-form navbar-right">
+			      <li id="uName"><h6 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h6></li>
+			      <li>
+			         <a th:href="@{/logout}" id="logout">Logout</a>
+			      </li>
+			   </ul>
+			   <ul class="nav navbar-nav">
+	            <li><a href="/chat">Live Chat</a></li>
+	          </ul>
+	          <ul sec:authorize="hasRole('ROLE_ADMIN')" class="nav navbar-nav">
+			    <li><a th:href="@{/inbox}">Mail</a></li>	          
+	          </ul>
+			</div>
         </div>
-      </div>
+        
+       	
+      </div> 
+      
     </nav>
-    
-    <!-- footer fragment -->
-     <div th:fragment="footer" class="container-small footerCon">
+
+	<div th:fragment="footer" class="container-small">
         <footer class="footer-bs">
           <div class="row">
-            <div class="col-md-2 footer-nav" id="footer-admin">
-               <ul class="list">
-                 <h6>Administrator</h6>
-                  <li><a th:href="@{/adminLogin}">Log In</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-2 footer-nav">
+          	<div class="col-md-2 footer-nav">
                <ul class="list">
                  <h6>Service</h6>
-                  <li><a th:href="@{/enquiry}">Enquiry</a></li>
+                  <li><a th:href="@{/enquiry}">Enquiries</a></li>
+                </ul>
+            </div>
+            <div th:if="!${#authorization.expression('isAuthenticated()')}" class="col-md-2 footer-nav" id="footer-admin">
+               <ul class="list">
+                 <h6>Administrator</h6>
+                  <li><a th:href="@{/login}">Log In</a></li>
                 </ul>
             </div>
           </div>
           <section align="right" >&copy; 2018 Strat</section>
         </footer>
      </div>
+
 </html>

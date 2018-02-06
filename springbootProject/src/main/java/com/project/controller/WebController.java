@@ -38,10 +38,10 @@ public class WebController {
         return "/adminLogin/admin";
     }
 
-    @GetMapping("/inbox")
+  /*  @GetMapping("/inbox")
     public String inbox() {
         return "/adminMail/inbox";
-    }
+    } */
     
     @GetMapping("/sentMail")
     public String sentMail() {

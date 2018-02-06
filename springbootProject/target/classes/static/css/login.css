@@ -1,19 +1,7 @@
-body{
-	overflow-x: hidden;
-}
-
 .container-small{
   background-color: #424242;
   color: #BDBDBD;
   bottom: 0;
   position: absolute;
   width: 100%;
-}
-
-#table {
-	width: 100%;
-}
-
-a:active {
-	color: blue;
 }

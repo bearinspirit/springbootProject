@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmls:th="http://www.thymeleaf.org">
 	<head>
-		<div th:replace="adminTemplate :: head"></div>
+		<div th:replace="template :: head"></div>
 		<title>Inbox</title>
 
 		<link rel="stylesheet" th:href="@{../../css/adminInbox.css}" />
@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<!--Default navbar-->
-		<nav th:replace="adminTemplate :: nav"></nav>
+		<nav th:replace="template :: nav"></nav>
 		
 		<!-- Body contents -->
 		<div class="container body-content">
@@ -40,22 +40,26 @@
 					       		<div class="container" id="table">
 					       			<table class="table">
 										  <thead>
-										    <tr action="/sentMail" th:action="@{/sentMail}" method="get">
+										    <tr action="/inbox" th:action="@{/inbox}" method="get">
 										      <th>#</th>
-										      <th>Date</th>
+										    <!-- <th>Date</th> -->
 										      <th>Name</th>
 										      <th>Email</th>
 										      <th>Subject</th>
+										      <th>Message</th>
+										      <th>Reply</th>
 										    </tr>
 										  </thead>
 										  
 										  <tbody>
-										    <tr th:each="enquiry : ${enquiries}">
+										    <tr th:each="enquiries : ${enquiries}">
 										      <td th:text="${enquiries.id}"></td>
-										      <td th:text="${enquiries.createdDateTime}"></td>
+										      <!-- <td th:text="${{enquiries.date_time}}"></td> -->
 										      <td th:text="${enquiries.name}"></td>
 										      <td th:text="${enquiries.email}"></td>
-										      <td><a th:href="@{#}" th:text="${enquiries.subject}"></a></td>
+										      <td th:text="${enquiries.subject}"></td>
+										      <td th:text="${enquiries.message}"></td>
+										      <td><button type="submit" class="btn btn-primary" action="@{#}" id="replyMail" data-toggle="modal" data-target="#replyMailModal">Reply</button></td>
 										    </tr>
 										  </tbody>
 									</table>
@@ -67,9 +71,59 @@
 		       	
 	    	</div>
 	  	  </div>
+	  	  
+	  	     <!-- forget password modal -->
+	         <div class="modal fade" id="replyMailModal" role="dialog">
+	            <div class="modal-dialog" id="modalDialog">
+	               <!-- Modal content-->
+	               <div class="modal-content">
+	                  <div class="modal-header">
+	                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                     <h4 class="modal-title">Reply Mail</h4>
+	                  </div>
+	                  
+	                  <div class="modal-body">
+	                     
+	                     <form class="form-horizontal" action="#"  th:action="@{#}" method="post">
+	                        <div class="form-group">
+	                        	<div class="col-md-12" id="senderEmailCon">
+	                        		
+	                        		<input type="text" class="form-control" id="recipientEmail" placeholder="Recipient Email" required="required" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+	                        		<!--<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error!</p>-->
+	                        	</div>
+	                        	
+	                        	<div class="col-md-12" id="adminEmailCon">
+	                        		<h5>From: stratdmin@gmail.com</h5>             
+	                        	</div>
+	                        	
+	                        	<div class="col-md-12" id="subjectMailCon">
+	                        		<input type="text" class="form-control" id="subjectMail" placeholder="Subject" required="required" autocomplete="off" />
+	                        		<!--  <p th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">Subject Error!</p> -->
+	                        	</div>
+	                        	
+	                        	<div class="row"></div>
+	                        	
+	                        	<div class="col-md-12" id="repliedMailCon">
+	                        		<textarea class="form-control" rows="6" id="replyMessage" placeholder="Message" required="required" autocomplete="off"></textarea>
+	                        		<!--  <p th:if="${#fields.hasErrors('admin_reply')}" th:errors="*{admin_reply}">Message Error!</p> -->
+	                        	</div>
+	                        
+	                        </div>
+	                        <div class="form-group">
+	                           <div class="col-md-6 col-md-offset-6">
+	                              <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelBtn">Cancel</button>
+	                              <button type="submit" class="btn btn-primary" id="submitEmail">Send</button>
+	                           </div>
+	                        </div>
+	                     </form>
+	                  </div>
+	                  
+	               </div>
+	            </div>
+	         </div>
 		</div>
 		
-		<div th:replace="adminTemplate :: footer"></div>
+		<div th:replace="template :: footer"></div>
 		
 	</body>
 </html>

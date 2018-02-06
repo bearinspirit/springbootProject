@@ -45,6 +45,7 @@ legend{
 
 #contacting{
   float:right;
+  position: relative;
 }
 
 .glyphicon{

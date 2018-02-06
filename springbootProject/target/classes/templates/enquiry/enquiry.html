@@ -30,30 +30,34 @@
 	        		
 	        			<h3>Drop us a mail here!</h3>
 	        			
-	        			<form class="form-horizontal" action="/enquiry" th:action="@{/enquiry}" method="post">
+	        			<form class="form-horizontal" action="/enquiry" th:action="@{/enquiry}" th:object="${enquiry}" method="post">
 	        				<fieldset>
 	        					<div class="form-group">
 									<div class="col-xs-9">
-								     	<input type="text" class="form-control" id="name" name="name" placeholder="Name" required="required" autocomplete="off"/>
+								     	<input type="text" class="form-control" th:field="*{name}" id="name" name="name" placeholder="Name" autocomplete="off" />
+								     	<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error!</p>
 								     </div>
 								</div>
 								
 								<div class="form-group">
 									<div class="col-xs-9">
-								     	<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required" autocomplete="off"/>
+								     	<input type="email" class="form-control" th:field="*{email}" id="email" name="email" placeholder="Email" autocomplete="off"/>
+								     	<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error!</p>
 								     </div>
 								</div>
 								
 								<div class="form-group">
 									<div class="col-xs-9">
-								     	<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" autocomplete="off"/>
-								     </div>
+								     	<input type="text" class="form-control" th:field="*{subject}" id="subject" name="subject" placeholder="Subject" autocomplete="off"/>
+								    	<p th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">Subject Error!</p>
+								    </div>
 								</div>
 								
 								<div class="form-group">
 									<div class="col-xs-9">
-								     	<textarea class="form-control" rows="6" id="message" name="message" placeholder="Message" required="required" autocomplete="off"></textarea>
-								     </div>
+								     	<textarea class="form-control" th:field="*{message}" rows="6" id="message" name="message" placeholder="Message" autocomplete="off"></textarea>
+								    	<p th:if="${#fields.hasErrors('message')}" th:errors="*{message}">Message Error!</p>
+								    </div>
 								</div>
 								
 								<div class="form-group">

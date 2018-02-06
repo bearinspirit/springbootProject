@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmls:th="http://www.thymeleaf.org">
 	<head>
-		<div th:replace="adminTemplate :: head"></div>
+		<div th:replace="template :: head"></div>
 		<title>Sent Mail</title>
 
 		<link rel="stylesheet" th:href="@{../../css/adminSentMail.css}" />
@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<!--Default navbar-->
-		<nav th:replace="adminTemplate :: nav"></nav>
+		<nav th:replace="template :: nav"></nav>
 		
 		<!-- Body contents -->
 		<div class="container body-content">
@@ -40,7 +40,7 @@
 					       		<div class="container" id="table">
 					       			<table class="table">
 										  <thead>
-										    <tr>
+										    <tr action="/sentMail" th:action="@{/sentMail}" method="get">
 										      <th>#</th>
 										      <th>Date</th>
 										      <th>Name</th>
@@ -49,12 +49,13 @@
 										    </tr>
 										  </thead>
 										  <tbody>
-										    <tr>
-										      <td id="indexId"></td>
-										      <td id="emailDate"></td>
-										      <td id="senderName"></td>
-										      <td id="emailAddr"></td>
-										      <td><a href="" id="emailSub"></a></td>
+										    <tr th:each="reply : ${replies}">
+										      <td th:text="${replies.id}"></td>
+										      <!-- <td id="emailDate"></td> -->										      
+										      <td th:text="${replies.name}"></td>
+										      <td th:text="${replies.email}"></td>
+										      <td th:text="${replies.subject}"></td>
+										      <td th:text="${replies.admin_reply}"></td>
 										    </tr>
 										  </tbody>
 									</table>
@@ -68,7 +69,7 @@
 	  	  </div>
 		</div>
 		
-		<div th:replace="adminTemplate :: footer"></div>
+		<div th:replace="template :: footer"></div>
 		
 	</body>
 </html>
