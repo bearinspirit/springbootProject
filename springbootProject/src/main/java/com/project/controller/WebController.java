@@ -27,10 +27,10 @@ public class WebController {
     public String home() {
         return "/home/home";
     }
-
-    @GetMapping("/enquiry")
-    public String enquiry() {
-        return "/enquiry/enquiry";
+    
+    @GetMapping("/login")
+    public String login() {
+    	return "/login/login";
     }
     
     @GetMapping("/admin")

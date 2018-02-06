@@ -4,10 +4,10 @@
  	<head>
  		<div th:replace="template :: head"></div>
 		<title>Contact Us</title>
-		<link rel="stylesheet" href="../../css/enquiry.css" />
-		<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" />
+		<link rel="stylesheet" th:href="@{../../css/enquiry.css}" />
+		<link th:href="@{https://fonts.googleapis.com/css?family=Arimo}" rel="stylesheet" />
 		
-	  	<script rel="text/javascript" src="../../script/enquiry.js"></script>
+	  	<script rel="text/javascript" th:src="@{../../script/enquiry.js}"></script>
  	</head>
 
 	<body>
@@ -30,29 +30,29 @@
 	        		
 	        			<h3>Drop us a mail here!</h3>
 	        			
-	        			<form class="form-horizontal">
+	        			<form class="form-horizontal" action="/enquiry" th:action="@{/enquiry}" method="post">
 	        				<fieldset>
 	        					<div class="form-group">
 									<div class="col-xs-9">
-								     	<input type="text" class="form-control" id="inputName" placeholder="Name" require="required" />
+								     	<input type="text" class="form-control" id="name" name="name" placeholder="Name" required="required" autocomplete="off"/>
 								     </div>
 								</div>
 								
 								<div class="form-group">
 									<div class="col-xs-9">
-								     	<input type="email" class="form-control" id="inputEmail" placeholder="Email" require="required" />
+								     	<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required" autocomplete="off"/>
 								     </div>
 								</div>
 								
 								<div class="form-group">
 									<div class="col-xs-9">
-								     	<input type="text" class="form-control" id="inputSubject" placeholder="Subject" require="required" />
+								     	<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" autocomplete="off"/>
 								     </div>
 								</div>
 								
 								<div class="form-group">
 									<div class="col-xs-9">
-								     	<textarea class="form-control" rows="6" id="textArea" placeholder="Message" require="required"></textarea>
+								     	<textarea class="form-control" rows="6" id="message" name="message" placeholder="Message" required="required" autocomplete="off"></textarea>
 								     </div>
 								</div>
 								
@@ -72,11 +72,6 @@
 	        	<div class="col-xs-6">
 	        		<div class="container">
 	        			<h3>Our Contact</h3>
-	        			
-	        			<h4>
-	        				<span class="glyphicon glyphicon-earphone" style="padding-right:2%;"></span>
-	        				(+65)91234567
-	        			</h4>
 	        			
 	        			<h4>
 	        				<span class="glyphicon glyphicon-envelope" style="padding-right:2%;"></span>

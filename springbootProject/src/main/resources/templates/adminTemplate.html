@@ -20,27 +20,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="../../images/StratLogo.png" alt="logo" class="img-responsive" width="45" height="45" id="logo"/></a>
+            <a class="navbar-brand" href="/"><img th:src="@{../../images/StratLogo.png}" alt="logo" class="img-responsive" width="45" height="45" id="logo"/></a>
          </div>
          
          <div class="collapse navbar-collapse" id="strat-navbar-collapse">
             
-            <div th:if="!${#authorization.expression('isAuthenticated()')}">
-               <ul class="nav navbar-nav navbar-right">
-                  <li><a th:href="@{/login}">Login</a></li>
-                  <li><a href="#">Sign Up</a></li>
-               </ul>
-            </div>
-            
-            <div th:if="!${#authorization.expression('isAuthenticated()')}">
-               <ul class="nav navbar-nav navbar-right">
-                  <li><a th:href="@{/adminLogin}">Login</a></li>
-                  <li><a href="#">Sign Up</a></li>
-               </ul>
-            </div>
-            
             <div th:if="${#authorization.expression('isAuthenticated()')}">
                <ul class="nav navbar-nav">
+               	  <li><a th:href="@{/chat}">Live Chat</a></li>
                   <li><a th:href="@{/inbox}">Mail</a></li>
                </ul>
                

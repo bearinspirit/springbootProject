@@ -4,9 +4,9 @@
 		<div th:replace="adminTemplate :: head"></div>
 		<title>Sent Mail</title>
 
-		<link rel="stylesheet" href="../../css/adminSentMail.css" />
+		<link rel="stylesheet" th:href="@{../../css/adminSentMail.css}" />
 
-	  	<script rel="text/javascript" src="../../script/adminSentMail.js"></script>
+	  	<script rel="text/javascript" th:src="@{../../script/adminSentMail.js}"></script>
 	</head>
 	<body>
 		<!--Default navbar-->
